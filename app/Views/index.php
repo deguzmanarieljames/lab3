@@ -52,13 +52,15 @@
 
                      <div class="fashion_section_2">
                         <div class="row">
-
                         <?php foreach ($products as $product): ?>
                            <?php foreach ($product as $category): ?>
                               <?php if ($category == 'Cellphone'): ?>
                                  <div class="col-lg-4 col-sm-4">
                                     <div class="box_main">
-
+                                    <?php
+                          // Set the id in the session
+                          $_SESSION['product_id'] = $product['id'];
+                          ?>
                                           <h4 class="shirt_text"><?= $product['name'] ?></h4>
                                           <p class="price_text">Start Price <span style="color: #262626;">₱<?= $product['price'] ?></span></p>
                                           <div class="electronic_img"><img src="images/<?= $product['image'] ?>"></div>
@@ -66,6 +68,7 @@
                                                 <div class="buy_bt"><a href="#">Buy Now</a></div>
                                                 <div class="seemore_bt"><a href="/details/<?= $product['id'] ?>">See More</a></div>
                                           </div>
+
                                     </div>
                            </div>
                          <?php endif; ?>

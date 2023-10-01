@@ -38,11 +38,18 @@ class Home extends BaseController
     }
 
     public function save(){
+        $file = $this->request->getFile('image');
+        if ($file->isValid() && ! $file->hasMoved())
+        {
+            $imageName = $file->getRandomName();
+            $file->move('images/', $imageName);
+        }
+
         $id = $_POST['id'];
         $data = [
             'name' => $this->request->getVar('name'),
             'description' => $this->request->getVar('description'),
-            'image' => $this->request->getVar('image'),
+            'image' => $imageName,
             'price' => $this->request->getVar('price'),
             'category' => $this->request->getVar('category'),
             'quantity' => $this->request->getVar('quantity'),

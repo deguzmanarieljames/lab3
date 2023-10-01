@@ -1,4 +1,24 @@
 <?= $this->include('/ecm/top') ?>
+
+<style>
+    label{
+display:inline-block;
+width:200px;
+margin-right:-50px;
+text-align:left;
+margin-left:-10px;
+margin-bottom:10px;
+}
+input{
+
+}
+
+fieldset{
+border:none;
+width:500px;
+margin:0px auto;
+}
+</style>
 <body>
 <?= $this->include('/ecm/header') ?>
 
@@ -18,8 +38,8 @@
         <label>Product Description</label>
         <input type="text" name="description" placeholder="description" value="<?= $_POST['description'] ?? $prod['description'] ?? '' ?>">
         <br>
-        <label>Product Image</label>
-        <input type="file" name="image" accept=".jpeg, .jpg, .png" value="<?= $_POST['image'] ?? $prod['image'] ?? '' ?>">
+        <label style="margin-right:-50px;">Product Image</label>
+        <input style="margin-right:-80px;" type="file" name="image" accept=".jpeg, .jpg, .png" value="<?= $_POST['image'] ?? $prod['image'] ?? '' ?>">
         <br>
         <!--<label>Product Category</label>
         <select name="ProductCategory" id="ProductCategory">
@@ -70,7 +90,9 @@
                                  <p class="price_text">Qty: <span style="color: #262626;"><?= $product['quantity']?></span></p>
                                  <div class="electronic_img"><img src="<?= "images/".$product['image']; ?>"></div>
                                  <p class="price_text">Description  <span style="color: #262626;"><?= $product['description']?></span></p>
+                                 <center>
                                  <a href="/delete/<?= $product['id'] ?>">delete</a> | <a href="/edit/<?= $product['id'] ?>">edit</a>
+                                 </center>
                               </div>
                            </div>
                            <?php endif; ?>
@@ -109,6 +131,9 @@
                                           <p class="price_text">Qty: <span style="color: #262626;"><?= $product['quantity']?></span></p>
                                           <div class="electronic_img"><img src="<?= $product['image']?>"></div>
                                           <p class="price_text">Description  <span style="color: #262626;"><?= $product['description']?></span></p>
+                                          <center>
+                                            <a href="/delete/<?= $product['id'] ?>">delete</a> | <a href="/edit/<?= $product['id'] ?>">edit</a>
+                                            </center>
                                     </div>
                            </div>
                          <?php endif; ?>

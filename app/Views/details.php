@@ -16,7 +16,7 @@
 
 
                         <?php foreach ($products as $product): ?>
-                              <?php if ($product['id']): ?>
+                              <?php if ($product['id'] == 'id'): ?>
                            <div class="col-lg-4 col-sm-4">
                               <div class="box_main">
                                  <h4 class="shirt_text"><?= $product['name']?></h4>
